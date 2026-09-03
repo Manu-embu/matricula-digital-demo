@@ -1,0 +1,14 @@
+DIAGNÓSTICO DA BASE v0.3.2
+
+1_ANO: 11 unidade(s) | períodos: Manhã, Tarde
+2_ANO: 10 unidade(s) | períodos: Manhã, Tarde
+3_ANO: 10 unidade(s) | períodos: Manhã, Tarde
+4_ANO: 10 unidade(s) | períodos: Manhã, Tarde
+5_ANO: 10 unidade(s) | períodos: Manhã, Tarde
+BERCARIO: 6 unidade(s) | períodos: Integral
+EJA: 6 unidade(s) | períodos: Noturno
+FASE_I: 21 unidade(s) | períodos: Integral, Manhã, Tarde
+FASE_II: 31 unidade(s) | períodos: Integral, Manhã, Tarde
+FASE_III: 34 unidade(s) | períodos: Integral, Manhã, Tarde
+FASE_IV: 35 unidade(s) | períodos: Intermediário, Manhã, Tarde
+FASE_V: 34 unidade(s) | períodos: Intermediário, Manhã, Tarde

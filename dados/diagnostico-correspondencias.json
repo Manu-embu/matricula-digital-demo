@@ -1,0 +1,629 @@
+{
+  "resolvidas": [
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "ASMOREJI",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-02",
+      "nome_coordenadas": "ASMOREJI"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "AVE MARIA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-03",
+      "nome_coordenadas": "AVE MARIA"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "BETEL",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-04",
+      "nome_coordenadas": "BETEL"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "JARDIM DE LOURDES",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-14",
+      "nome_coordenadas": "JARDIM LOURDES"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "BOSQUINHO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-05",
+      "nome_coordenadas": "BOSQUINHO"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "KOLPING EMBU",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-16",
+      "nome_coordenadas": "KOLPING"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "KOLPING RESSACA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-17",
+      "nome_coordenadas": "KOLPING RESSACA"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "CRISTO RESSUSCITADO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-07",
+      "nome_coordenadas": "CRISTO RESSUSCITADO"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "SANTA INÊS",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-21",
+      "nome_coordenadas": "SANTA INÊS"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "ASSOC PEQUENINOS PARQUE PIRAJUSSARA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-19",
+      "nome_coordenadas": "PEQ. DO PARQUE"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "ISIS CRISTINA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-12",
+      "nome_coordenadas": "ISIS CRISTINA"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "MADRE TEREZA I",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-18",
+      "nome_coordenadas": "MADRE TEREZA"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "RIO PEQUENO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-20",
+      "nome_coordenadas": "RIO PEQUENO"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "SANTA LUZIA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-22",
+      "nome_coordenadas": "SANTA LUZIA"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "JARDIM SILVIA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-13",
+      "nome_coordenadas": "JD. SILVIA"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "GABRIELA PIRES",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-06",
+      "nome_coordenadas": "CEI GABRIELA"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "PASTOR AMÉRICO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-09",
+      "nome_coordenadas": "PASTOR AMÉRICO"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "CRECHE FLORESTAN",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-08",
+      "nome_coordenadas": "FLORESTAN"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "CRECHE MILTON SANTOS",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-10",
+      "nome_coordenadas": "CRECHE MILTON"
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "CRECHE SANTA TEREZINHA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "CONV-23",
+      "nome_coordenadas": "SANTA TEREZINHA"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. DOM JOSÉ",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-31",
+      "nome_coordenadas": "EM DOM JOSÉ"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. ESTELA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-07",
+      "nome_coordenadas": "EM ESTELA"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. JEANETE BEAUCHAMP",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-32",
+      "nome_coordenadas": "EM JEANETE BEAUCHAMP"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. JOSSEI TODA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-35",
+      "nome_coordenadas": "EM JOSSEI TODA"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. MARIA ILUMINATA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-37",
+      "nome_coordenadas": "EM MARIA ILUMINATA"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. MELLONE",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-15",
+      "nome_coordenadas": "EM MELLONE"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. NILZA PRESTES",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-02",
+      "nome_coordenadas": "EM NILZA PRESTES"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. PAU BRASIL",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-34",
+      "nome_coordenadas": "EM PAU BRASIL"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. SANTO ANTONIO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-25",
+      "nome_coordenadas": "EM SANTO ANTONIO"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. JOÃO ANTONIO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-10",
+      "nome_coordenadas": "EM JOÃO ANTONIO DOS SANTOS"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. SUELI MARIA HIPÓLITO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-40",
+      "nome_coordenadas": "EM SUELI MARIA HIPÓLITO"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. JACARANDA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-38",
+      "nome_coordenadas": "EM JACARANDA"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. MAGALI",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-22",
+      "nome_coordenadas": "EM MAGALI"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. MIKIO UMEDA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-27",
+      "nome_coordenadas": "EM MIKIO UMEDA"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. VAZAME",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-43",
+      "nome_coordenadas": "EM VAZAME"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. IPÊ",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-42",
+      "nome_coordenadas": "EM IPÊ"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. INÊS CARDOSO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-06",
+      "nome_coordenadas": "EM INÊS CARDOSO"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. EDNA NUNES",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-39",
+      "nome_coordenadas": "EM EDNA NUNES"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. CLÓVIS TENÓRIO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-21",
+      "nome_coordenadas": "EM CLÓVIS TENORIO APARECIDO"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M. JOSÉ CARLOS",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-13",
+      "nome_coordenadas": "EM JOSÉ CARLOS"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "E.M.JATOBÁ",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-01",
+      "nome_coordenadas": "EM JATOBÁ"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "NEI JD DA LUZ",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-45",
+      "nome_coordenadas": "NEI JD DA LUZ"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "NEI SÃO MARCOS",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-11",
+      "nome_coordenadas": "NEI SÃO MARCOS"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "NEI JD. DE LOURDES",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-17",
+      "nome_coordenadas": "NEI JD. DE LOURDES"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "NEI TOMÉ",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-16",
+      "nome_coordenadas": "NEI TOMÉ"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "NEI MAGALI",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-24",
+      "nome_coordenadas": "NEI MAGALI"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "NEI ISIS CRISTINA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-23",
+      "nome_coordenadas": "NEI ISIS CRISTINA"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "NEI FRANCISCO MARCATTO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-36",
+      "nome_coordenadas": "NEI FRANCISCO MARCATTO"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "NEI RESSACA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-28",
+      "nome_coordenadas": "NEI RESSACA"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "NEI VALO VERDE",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-44",
+      "nome_coordenadas": "NEI VALO VERDE"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "NEI CAPUAVA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-29",
+      "nome_coordenadas": "NEI CAPUAVA"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "EM MUNDO DA CRIANÇA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-05",
+      "nome_coordenadas": "EM MUNDO DA CRIANÇA"
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "EM MARIA DAS GRAÇAS",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-20",
+      "nome_coordenadas": "EM MARIA DAS GRAÇAS"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. MAURO FERREIRA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-14",
+      "nome_coordenadas": "EM MAURO FERREIRA"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. IODOQUE ROSA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-26",
+      "nome_coordenadas": "EM IODOQUE ROSA"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. VILLA LOBOS",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-33",
+      "nome_coordenadas": "EM VILLA LOBOS"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. JORNALISTA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-08",
+      "nome_coordenadas": "EM JORNALISTA"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. DELPHINA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-30",
+      "nome_coordenadas": "EM DELPHINA"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. CINARA REGINA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-09",
+      "nome_coordenadas": "EM CINARA"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. JANAINA",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-18",
+      "nome_coordenadas": "EM JANAINA"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. ROSA CIRELLI",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-04",
+      "nome_coordenadas": "EM ROSA CIRELLI"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. VALDELICE",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-12",
+      "nome_coordenadas": "EM VALDELICE AP MEDEIROS PRASS"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. REYNALDO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-03",
+      "nome_coordenadas": "EM REYNALDO"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. PROFESSOR MURILO",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-19",
+      "nome_coordenadas": "EM MURILO FERREIRA"
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. VALDELICE",
+      "status": "CORRESPONDENCIA_VALIDADA",
+      "id_coordenada": "DIR-12",
+      "nome_coordenadas": "EM VALDELICE AP MEDEIROS PRASS"
+    }
+  ],
+  "pendentes": [
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "AVE MARIA/DOMINICANAS",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "BETEL NOVO CAMPO LIMPO",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "ENGENHO VELHO",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "ESTRELA DA MANHÃ I",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "ESTRELA DA MANHÃ II",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "MADRE TEREZA /SÃO SEBASTIÃO",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "CRECHE JOSEJA",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "CRECHE MILTON SANTOS II",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "CRECHE_CONVENIADA",
+      "nome_planilha": "CRECHE SANTA TEREZINHA/SÃO JOSÉ",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "CRECHE_EDUCINFANTIL",
+      "nome_planilha": "EM SOLANGE ALMEIDA",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. ASTROGILDA",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. MARIA J. AZTECA",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Alias identificado como EM Maria Josefina de Carvalho Azteca; coordenada não encontrada na base fornecida."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. JEQUITIBA",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. JEQUITIBÁ (ANEXO)",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. ELZA MARREIRO",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. HERMINIO",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. AMILTON",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. MARAJOARA",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. JULIANELLI",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. PAULO FREIRE",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    },
+    {
+      "aba": "PRE_FUNDI_FUNDII",
+      "nome_planilha": "E.M. PAULO FREIRE",
+      "status": "PENDENTE",
+      "id_coordenada": "",
+      "nome_coordenadas": "",
+      "observacao": "Sem correspondência segura na base de coordenadas; requer validação manual."
+    }
+  ]
+}

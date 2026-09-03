@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matrícula Digital 2027 | SME Embu das Artes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">EA</div>
+      <div>
+        <strong>Prefeitura de Embu das Artes</strong>
+        <span>Secretaria Municipal de Educação</span>
+      </div>
+    </div>
+    <button class="ghost" id="btnConsultaTop">Consultar inscrição</button>
+  </header>
+  <div class="demo-banner">
+    <strong>MODO DEMONSTRAÇÃO</strong>
+    <span>Apresentação do Matrícula Digital 2027. Nenhuma informação ou documento preenchido nesta versão é armazenado.</span>
+  </div>
+
+
+  <main class="shell">
+    <section id="home" class="view active">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">Ano letivo 2027</span>
+          <h1>Matrícula Digital</h1>
+          <p>Faça a inscrição, solicite transferência e acompanhe o atendimento escolar pela internet.</p>
+        </div>
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          Inscrições abertas
+        </div>
+      </div>
+
+      <div class="notice">
+        <strong>Antes de começar</strong>
+        <span>Tenha em mãos os documentos do estudante, do responsável e um comprovante de residência.</span>
+      </div>
+
+      <h2>Como podemos ajudar?</h2>
+      <div class="cards">
+        <button class="service-card" data-service="educacao-infantil">
+          <span class="icon">👶</span>
+          <span><strong>Educação Infantil</strong><small>Creche e Pré-escola</small></span>
+          <b>→</b>
+        </button>
+        <button class="service-card" data-service="fundamental">
+          <span class="icon">📚</span>
+          <span><strong>Ensino Fundamental</strong><small>1º ao 9º ano</small></span>
+          <b>→</b>
+        </button>
+        <button class="service-card" data-service="eja">
+          <span class="icon">🌙</span>
+          <span><strong>EJA</strong><small>Educação de Jovens e Adultos</small></span>
+          <b>→</b>
+        </button>
+        <button class="service-card" data-service="transferencia">
+          <span class="icon">🔄</span>
+          <span><strong>Transferência</strong><small>Mudança de endereço ou intenção</small></span>
+          <b>→</b>
+        </button>
+        <button class="service-card secondary" id="btnConsulta">
+          <span class="icon">🔎</span>
+          <span><strong>Consultar inscrição</strong><small>Acompanhe seu protocolo</small></span>
+          <b>→</b>
+        </button>
+      </div>
+    </section>
+
+    <section id="wizard" class="view">
+      <div class="wizard-head">
+        <button class="back-link" id="btnVoltarInicio">← Voltar</button>
+        <div>
+          <span class="eyebrow" id="serviceLabel">Educação Infantil</span>
+          <h1>Nova inscrição</h1>
+        </div>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-meta"><span id="stepLabel">Etapa 1 de 6</span><span id="progressText">17%</span></div>
+        <div class="progress"><span id="progressBar"></span></div>
+      </div>
+
+      <form id="matriculaForm" novalidate>
+        <section class="step active" data-step="1">
+          <h2>Responsável</h2>
+          <p class="muted">Informe os dados da pessoa responsável pelo estudante.</p>
+          <div class="grid">
+            <label>CPF*
+              <input id="cpfResponsavel" maxlength="14" placeholder="000.000.000-00" required>
+            </label>
+            <label>Nome completo*
+              <input id="nomeResponsavel" required>
+            </label>
+            <label>Parentesco*
+              <select id="parentesco" required>
+                <option value="">Selecione</option>
+                <option>Mãe</option><option>Pai</option><option>Avó/Avô</option>
+                <option>Tutor/Guardião</option><option>Outro</option>
+              </select>
+            </label>
+            <label>Telefone / WhatsApp*
+              <input id="telefone" placeholder="(11) 99999-9999" required>
+            </label>
+            <label class="span2">E-mail
+              <input id="email" type="email" placeholder="nome@exemplo.com">
+            </label>
+          </div>
+        </section>
+
+        <section class="step" data-step="2">
+          <h2>Estudante</h2>
+          <p class="muted">A etapa educacional será calculada a partir da data de nascimento.</p>
+          <div class="grid">
+            <label class="span2">Nome completo*
+              <input id="nomeEstudante" required>
+            </label>
+            <label>Data de nascimento*
+              <input id="dataNascimento" type="text" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA" autocomplete="bday" required>
+              <small class="field-help">Ex.: 15/08/2018</small>
+            </label>
+            <label>CPF do estudante
+              <input id="cpfEstudante" maxlength="14" placeholder="000.000.000-00">
+            </label>
+            <label>Sexo*
+              <select id="sexo" required>
+                <option value="">Selecione</option>
+                <option>Feminino</option><option>Masculino</option>
+              </select>
+            </label>
+            <label>Nacionalidade*
+              <select id="nacionalidade" required>
+                <option value="Brasileira">Brasileira</option>
+                <option value="Outra">Outra</option>
+              </select>
+            </label>
+          </div>
+          <div id="etapaBox" class="result-box hidden"></div>
+        </section>
+
+        <section class="step" data-step="3">
+          <h2>Endereço</h2>
+          <p class="muted">O endereço será geocodificado para localizar as unidades compatíveis mais próximas. No protótipo, o filtro usa distância geográfica de até 2 km; em produção, a regra será calculada por rota a pé.</p>
+          <div class="grid">
+            <label>CEP*
+              <input id="cep" maxlength="9" placeholder="00000-000" required>
+            </label>
+            <label>Número*
+              <input id="numero" required>
+            </label>
+            <label class="span2">Logradouro*
+              <input id="logradouro" required>
+            </label>
+            <label>Bairro*
+              <input id="bairro" required>
+            </label>
+            <label>Complemento
+              <input id="complemento">
+            </label>
+            <label class="span2">Ponto de referência
+              <input id="referencia">
+            </label>
+          </div>
+          <button type="button" class="outline" id="btnSimularEndereco">Localizar endereço</button>
+          <div id="geoBox" class="result-box hidden"></div>
+        </section>
+
+        <section class="step" data-step="4">
+          <h2>Atendimento e prioridades</h2>
+          <div class="question-list">
+            <label class="checkrow"><input type="checkbox" id="pcd"> <span>O estudante possui deficiência ou necessita de recurso de acessibilidade?</span></label>
+            <label class="checkrow"><input type="checkbox" id="irmao"> <span>Possui irmão matriculado na rede pública e no mesmo endereço?</span></label>
+            <label class="checkrow"><input type="checkbox" id="gemeo"> <span>Possui irmão gêmeo que também será inscrito?</span></label>
+            <label class="checkrow"><input type="checkbox" id="vulnerabilidade"> <span>Existe situação de vulnerabilidade que deve ser analisada pela SME?</span></label>
+          </div>
+          <div class="criteria-box">
+            <h3>Critérios sociais</h3>
+            <p class="muted">As informações declaradas serão conferidas pela SME antes da classificação.</p>
+            <div class="radio-group">
+              <span class="radio-title">A família é beneficiária do Programa Bolsa Família?</span>
+              <label class="radio-inline"><input type="radio" name="bolsaFamilia" value="Sim"> Sim</label>
+              <label class="radio-inline"><input type="radio" name="bolsaFamilia" value="Não"> Não</label>
+            </div>
+            <div id="bolsaDocWrap" class="hidden">
+              <label>Comprovante do Bolsa Família
+                <input id="docBolsaFamilia" type="file" accept=".pdf,.jpg,.jpeg,.png">
+                <small class="field-help">PDF, JPG ou PNG. Máximo 5 MB.</small>
+              </label>
+            </div>
+          </div>
+
+          <div class="documents-box">
+            <h3>Documentos da criança</h3>
+            <p class="muted">Na versão definitiva será exigido RG/CPF <strong>ou</strong> Certidão de Nascimento, além do comprovante de residência. Para esta demonstração, os anexos são opcionais.</p>
+            <div class="grid">
+              <label>Documento de identificação da criança (RG ou CPF)
+                <input id="docIdentificacaoCrianca" type="file" accept=".pdf,.jpg,.jpeg,.png">
+                <small class="field-help">PDF, JPG ou PNG. Máximo 5 MB.</small>
+              </label>
+              <label>Certidão de nascimento
+                <input id="docNascimento" type="file" accept=".pdf,.jpg,.jpeg,.png">
+                <small class="field-help">PDF, JPG ou PNG. Máximo 5 MB.</small>
+              </label>
+              <label class="span2">Comprovante de residência
+                <input id="docResidencia" type="file" accept=".pdf,.jpg,.jpeg,.png">
+                <small class="field-help">PDF, JPG ou PNG. Máximo 5 MB.</small>
+              </label>
+            </div>
+          </div>
+          <div class="notice soft">
+            <strong>Período de atendimento</strong>
+            <span>O período será definido conforme a disponibilidade de vaga da unidade escolar. Não é necessário indicar preferência.</span>
+          </div>
+        </section>
+
+        <section class="step" data-step="5">
+          <h2>Unidades compatíveis</h2>
+          <p class="muted">Unidades reais da base da SME, filtradas pela etapa calculada. A capacidade exibida é referência de 2026, não representa vaga disponível em 2027.</p>
+          <div class="data-badge"><span>Base SME</span><strong id="schoolDataStatus">Carregando unidades...</strong></div>
+          <div id="schools" class="school-list"></div>
+          <div class="notice soft">
+            A unidade indicada é uma preferência. A matrícula dependerá das regras vigentes e da disponibilidade de vagas.
+          </div>
+        </section>
+
+        <section class="step" data-step="6">
+          <h2>Revisão</h2>
+          <p class="muted">Confira as informações antes de finalizar.</p>
+          <div id="review" class="review"></div>
+          <label class="checkrow legal"><input type="checkbox" id="declaracao" required> <span>Declaro que as informações fornecidas são verdadeiras e estou ciente das regras de atendimento.</span></label>
+        </section>
+
+        <div class="actions">
+          <button type="button" class="outline" id="btnPrev">Voltar</button>
+          <button type="button" class="primary" id="btnNext">Continuar</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="success" class="view">
+      <div class="success-card">
+        <div class="success-icon">✓</div>
+        <span class="eyebrow">Simulação concluída</span>
+        <h1>Fluxo de inscrição concluído</h1>
+        <p>O protocolo abaixo é demonstrativo e não corresponde a uma inscrição real.</p>
+        <div class="protocol" id="protocolNumber">MAT-2027-000124</div>
+        <div id="successSummary" class="summary"></div>
+        <div class="notice soft">
+          A inscrição não representa garantia de matrícula na unidade indicada como preferência.
+        </div>
+        <div class="actions center">
+          <button class="outline" id="btnNova">Nova inscrição</button>
+          <button class="primary" id="btnAcompanhar">Acompanhar inscrição</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="consulta" class="view">
+      <div class="wizard-head">
+        <button class="back-link" id="btnConsultaVoltar">← Voltar</button>
+        <div>
+          <span class="eyebrow">Consulta pública</span>
+          <h1>Acompanhar inscrição</h1>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="grid">
+          <label>CPF do responsável
+            <input id="consultaCpf" placeholder="000.000.000-00">
+          </label>
+          <label>Protocolo
+            <input id="consultaProtocolo" placeholder="MAT-2027-000124">
+          </label>
+        </div>
+        <button class="primary" id="btnConsultarStatus">Consultar</button>
+        <div id="statusResult" class="status-result hidden">
+          <div class="status-header"><strong id="statusProtocol">MAT-2027-000124</strong><span class="badge">Em análise</span></div>
+          <div class="timeline">
+            <div class="timeline-item done"><b>Inscrição realizada</b><span>27/08/2026 • 11:44</span></div>
+            <div class="timeline-item active"><b>Em análise</b><span>Documentos e dados em conferência</span></div>
+            <div class="timeline-item"><b>Aguardando atendimento</b><span>Próxima etapa</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Secretaria Municipal de Educação de Embu das Artes</span>
+    <span>DEMO v0.4.3 • apresentação ao Setor de Demanda • nenhum dado é armazenado</span>
+  </footer>
+
+  <script src="dados/unidades.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
