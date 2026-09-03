@@ -132,16 +132,24 @@ e abra `http://localhost:8000`.
 - A pontuação relativa ao Bolsa Família ainda não é calculada automaticamente; ficará parametrizada quando a SME definir/confirmar a regra oficial.
 
 
-## DEMO v0.4.7
+## DEMO v0.4.8
 - Arquivos JS versionados para eliminar cache do GitHub/browser.
 - Geocodificação restrita ao município.
 - Correspondência forte do logradouro; resultado genérico é rejeitado.
-- O resultado mostra 'Motor geográfico v0.4.7' para conferência.
+- O resultado mostra 'Motor geográfico v0.4.8' para conferência.
 
 
-## v0.4.7 — CEP inteligente e fallback territorial
+## v0.4.8 — CEP inteligente e fallback territorial
 - Preenchimento automático de logradouro e bairro pelo CEP.
 - Desativa autocomplete do navegador em logradouro/bairro.
 - Geocodificação em três níveis: número/logradouro, logradouro e coordenada aproximada do CEP.
 - Resultados aproximados são sinalizados explicitamente.
 - Se não houver coordenada confiável, nenhuma escola é sugerida e a inscrição segue para análise territorial da SME.
+
+
+## v0.4.8 — validação territorial
+- Introduz uma camada local de referências territoriais validadas pela SME.
+- O CEP 06815-620 (Rua Antônio Conselheiro / Parque Pirajussara) usa uma referência territorial local prioritária.
+- Serviços externos continuam sendo usados para endereços sem referência local.
+- O resultado informa a fonte da coordenada utilizada.
+- A distância permanece geográfica (linha reta) nesta demo; rota a pé será implementada na produção.

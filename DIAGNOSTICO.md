@@ -26,3 +26,11 @@
 - **PRE_FUNDI_FUNDII** — E.M. JULIANELLI: Sem correspondência segura na base de coordenadas; requer validação manual.
 - **PRE_FUNDI_FUNDII** — E.M. PAULO FREIRE: Sem correspondência segura na base de coordenadas; requer validação manual.
 - **PRE_FUNDI_FUNDII** — E.M. PAULO FREIRE: Sem correspondência segura na base de coordenadas; requer validação manual.
+
+## v0.4.8
+Caso de regressão territorial:
+- CEP: 06815-620
+- Logradouro: Rua Antônio Conselheiro
+- Bairro: Parque Pirajussara
+- Referência territorial: lat -23.651460 / lon -46.817630
+- Resultado esperado: EM Valdelice e NEI Isis Cristina entre as primeiras unidades; EM Jatobá também dentro do raio geográfico de 2 km.
