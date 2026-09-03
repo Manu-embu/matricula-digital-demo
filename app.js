@@ -274,15 +274,40 @@ function calculateStage(){
   });
 });
 
+function normalizeText(v){
+  return (v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+}
+function tokenSimilarity(a,b){
+  const A=new Set(normalizeText(a).split(' ').filter(x=>x.length>2));
+  const B=new Set(normalizeText(b).split(' ').filter(x=>x.length>2));
+  if(!A.size || !B.size) return 0;
+  let hit=0; A.forEach(x=>{if(B.has(x)) hit++});
+  return hit/Math.max(A.size,B.size);
+}
+function addressCity(addr){
+  return addr.city || addr.town || addr.municipality || addr.city_district || '';
+}
+function addressRoad(addr){
+  return addr.road || addr.pedestrian || addr.residential || addr.neighbourhood || '';
+}
+
+async function searchNominatim(params){
+  const usp=new URLSearchParams({format:'jsonv2',limit:'5',countrycodes:'br',addressdetails:'1',...params});
+  const res=await fetch('https://nominatim.openstreetmap.org/search?'+usp.toString(),{headers:{'Accept':'application/json'}});
+  if(!res.ok) return [];
+  return await res.json();
+}
+
 document.getElementById('btnSimularEndereco').addEventListener('click', async ()=>{
   const btn=document.getElementById('btnSimularEndereco');
-  const cep=document.getElementById('cep').value.trim();
+  const cepRaw=document.getElementById('cep').value.trim();
+  const cep=onlyDigits(cepRaw);
   const numero=document.getElementById('numero').value.trim();
-  const logradouro=document.getElementById('logradouro').value.trim();
-  const bairro=document.getElementById('bairro').value.trim();
+  const logradouroDigitado=document.getElementById('logradouro').value.trim();
+  const bairroDigitado=document.getElementById('bairro').value.trim();
   const box=document.getElementById('geoBox');
 
-  if(!logradouro || !numero || !bairro){
+  if(!logradouroDigitado || !numero || !bairroDigitado){
     box.innerHTML='<strong>Endereço incompleto</strong><br>Preencha logradouro, número e bairro antes de localizar.';
     box.classList.remove('hidden');
     return;
@@ -292,34 +317,77 @@ document.getElementById('btnSimularEndereco').addEventListener('click', async ()
   const original=btn.textContent;
   btn.textContent='Localizando...';
 
-  const queries=[
-    [logradouro,numero,bairro,'Embu das Artes','São Paulo','Brasil'].join(', '),
-    [logradouro,bairro,'Embu das Artes','São Paulo','Brasil'].join(', '),
-    [cep,'Embu das Artes','São Paulo','Brasil'].join(', ')
-  ];
-
   try{
-    let result=null;
-
-    for(const query of queries){
-      const url='https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=br&addressdetails=1&q='+encodeURIComponent(query);
-      const res=await fetch(url,{headers:{'Accept':'application/json'}});
-      if(!res.ok) continue;
-      const data=await res.json();
-      if(data && data.length){
-        result=data[0];
-        break;
-      }
+    // 1. Canonicaliza o CEP brasileiro antes de geocodificar.
+    let logradouro=logradouroDigitado, bairro=bairroDigitado, cepInfo=null;
+    if(cep.length===8){
+      try{
+        const vr=await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        if(vr.ok){
+          const vd=await vr.json();
+          if(vd && !vd.erro){
+            cepInfo=vd;
+            if(vd.localidade && normalizeText(vd.localidade)!=='embu das artes'){
+              residencePoint=null; geocodedAddress='';
+              box.innerHTML=`<strong>CEP fora de Embu das Artes</strong><br>O CEP informado corresponde a <strong>${vd.localidade}/${vd.uf||''}</strong>. Revise o endereço antes de continuar.`;
+              box.classList.remove('hidden');
+              return;
+            }
+            if(vd.logradouro) logradouro=vd.logradouro;
+            if(vd.bairro) bairro=vd.bairro;
+          }
+        }
+      }catch(e){ console.warn('ViaCEP indisponível',e); }
     }
 
-    if(!result){
+    // 2. Busca primeiro o endereço completo. Nunca usamos CEP isolado como coordenada exata.
+    const attempts=[
+      {street:`${numero} ${logradouro}`,city:'Embu das Artes',state:'São Paulo',postalcode:cepRaw,country:'Brasil'},
+      {street:`${numero} ${logradouro}`,city:'Embu das Artes',state:'São Paulo',country:'Brasil'},
+      {q:[logradouro,numero,bairro,'Embu das Artes','São Paulo','Brasil'].join(', ')}
+    ];
+
+    let candidates=[];
+    for(const params of attempts){
+      const found=await searchNominatim(params);
+      if(found?.length) candidates.push(...found);
+    }
+
+    // Remove duplicados e pontua apenas resultados territorialmente coerentes.
+    const uniq=[]; const seen=new Set();
+    for(const r of candidates){
+      const k=`${Number(r.lat).toFixed(6)},${Number(r.lon).toFixed(6)}`;
+      if(!seen.has(k)){seen.add(k);uniq.push(r)}
+    }
+
+    const wantedRoad=logradouro;
+    const wantedBairro=bairro;
+    const scored=uniq.map(r=>{
+      const a=r.address||{};
+      const city=addressCity(a);
+      const road=addressRoad(a);
+      const cityOk=normalizeText(city).includes('embu das artes') || normalizeText(r.display_name).includes('embu das artes');
+      const roadScore=tokenSimilarity(wantedRoad,road || r.display_name);
+      const bairroScore=tokenSimilarity(wantedBairro,[a.suburb,a.neighbourhood,a.quarter,a.city_district,r.display_name].filter(Boolean).join(' '));
+      const post=onlyDigits(a.postcode||'');
+      const cepOk=!cep || !post || post===cep;
+      // Rua é o critério principal. Bairro e CEP apenas reforçam.
+      const score=(cityOk?3:0)+(roadScore*5)+(bairroScore*1.5)+(cepOk?0.5:0);
+      return {r,cityOk,roadScore,bairroScore,cepOk,score};
+    }).filter(x=>x.cityOk && x.roadScore>=0.45 && x.cepOk)
+      .sort((a,b)=>b.score-a.score);
+
+    const best=scored[0];
+    if(!best){
       residencePoint=null;
       geocodedAddress='';
-      box.innerHTML='<strong>Endereço não localizado</strong><br>Revise logradouro, número, bairro e CEP. A inscrição pode continuar, mas a compatibilização territorial ficará pendente para análise da SME.';
+      const cepNote=cepInfo ? `<br><small>CEP confirmado: ${cepInfo.logradouro||logradouroDigitado} — ${cepInfo.bairro||bairroDigitado}, Embu das Artes/SP.</small>` : '';
+      box.innerHTML=`<strong>Não foi possível localizar este endereço com segurança.</strong><br>O sistema evitou utilizar uma coordenada aproximada que poderia indicar uma escola incorreta.${cepNote}<br><br>Revise o número/logradouro ou prossiga para análise territorial pela SME.`;
       box.classList.remove('hidden');
       return;
     }
 
+    const result=best.r;
     residencePoint={lat:Number(result.lat),lon:Number(result.lon)};
     geocodedAddress=result.display_name || '';
 
@@ -330,10 +398,10 @@ document.getElementById('btnSimularEndereco').addEventListener('click', async ()
       return d<=2;
     });
 
-    box.innerHTML=`<strong>Endereço localizado</strong><br>${geocodedAddress}<br>
+    box.innerHTML=`<strong>Endereço localizado e conferido</strong><br>${geocodedAddress}<br>
       <span class="geo-coords">Lat ${residencePoint.lat.toFixed(6)} • Lon ${residencePoint.lon.toFixed(6)}</span><br><br>
       <strong>${inside.length} unidade(s)</strong> com oferta de ${stageLabel(currentStageCode)} encontrada(s) em até 2 km.
-      <div class="warning-box"><strong>Importante:</strong> nesta versão, o raio de 2 km usa distância em linha reta. Na produção, a regra será calculada por <strong>rota a pé</strong>.</div>`;
+      <div class="warning-box"><strong>Importante:</strong> nesta versão, o raio de 2 km ainda usa distância em linha reta. Na produção, a regra será calculada por <strong>rota a pé</strong>.</div>`;
     box.classList.remove('hidden');
   }catch(err){
     residencePoint=null;
