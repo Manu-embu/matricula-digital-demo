@@ -130,3 +130,10 @@ e abra `http://localhost:8000`.
   - comprovante de residência.
 - Uploads aceitam PDF, JPG e PNG, com validação preliminar de até 5 MB.
 - A pontuação relativa ao Bolsa Família ainda não é calculada automaticamente; ficará parametrizada quando a SME definir/confirmar a regra oficial.
+
+
+## DEMO v0.4.6
+- Arquivos JS versionados para eliminar cache do GitHub/browser.
+- Geocodificação restrita ao município.
+- Correspondência forte do logradouro; resultado genérico é rejeitado.
+- O resultado mostra 'Motor geográfico v0.4.6' para conferência.
