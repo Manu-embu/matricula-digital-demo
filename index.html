@@ -148,16 +148,16 @@
           <p class="muted">O endereço será geocodificado para localizar as unidades compatíveis mais próximas. No protótipo, o filtro usa distância geográfica de até 2 km; em produção, a regra será calculada por rota a pé.</p>
           <div class="grid">
             <label>CEP*
-              <input id="cep" maxlength="9" placeholder="00000-000" required>
+              <input id="cep" maxlength="9" placeholder="00000-000" autocomplete="postal-code" required>
             </label>
             <label>Número*
               <input id="numero" required>
             </label>
             <label class="span2">Logradouro*
-              <input id="logradouro" required>
+              <input id="logradouro" autocomplete="off" required>
             </label>
             <label>Bairro*
-              <input id="bairro" required>
+              <input id="bairro" autocomplete="off" required>
             </label>
             <label>Complemento
               <input id="complemento">
@@ -292,10 +292,10 @@
 
   <footer>
     <span>Secretaria Municipal de Educação de Embu das Artes</span>
-    <span>DEMO v0.4.6 • apresentação ao Setor de Demanda • nenhum dado é armazenado</span>
+    <span>DEMO v0.4.7 • apresentação ao Setor de Demanda • nenhum dado é armazenado</span>
   </footer>
 
-  <script src="dados/unidades-v046.js?v=046"></script>
-  <script src="app-v046.js?v=046"></script>
+  <script src="dados/unidades-v047.js?v=047"></script>
+  <script src="app-v047.js?v=047"></script>
 </body>
 </html>

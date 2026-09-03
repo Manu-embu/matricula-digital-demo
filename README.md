@@ -132,8 +132,16 @@ e abra `http://localhost:8000`.
 - A pontuação relativa ao Bolsa Família ainda não é calculada automaticamente; ficará parametrizada quando a SME definir/confirmar a regra oficial.
 
 
-## DEMO v0.4.6
+## DEMO v0.4.7
 - Arquivos JS versionados para eliminar cache do GitHub/browser.
 - Geocodificação restrita ao município.
 - Correspondência forte do logradouro; resultado genérico é rejeitado.
-- O resultado mostra 'Motor geográfico v0.4.6' para conferência.
+- O resultado mostra 'Motor geográfico v0.4.7' para conferência.
+
+
+## v0.4.7 — CEP inteligente e fallback territorial
+- Preenchimento automático de logradouro e bairro pelo CEP.
+- Desativa autocomplete do navegador em logradouro/bairro.
+- Geocodificação em três níveis: número/logradouro, logradouro e coordenada aproximada do CEP.
+- Resultados aproximados são sinalizados explicitamente.
+- Se não houver coordenada confiável, nenhuma escola é sugerida e a inscrição segue para análise territorial da SME.
