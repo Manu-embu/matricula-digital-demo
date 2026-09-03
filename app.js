@@ -190,10 +190,6 @@ document.querySelectorAll('input[name="bolsaFamilia"]').forEach(r=>{
   });
 });
 
-  if(currentStep===5) renderCompatibleSchools();
-});
-
-
 document.querySelectorAll('.service-card[data-service]').forEach(btn => btn.addEventListener('click', ()=>{
   const map={
     'educacao-infantil':'Educação Infantil',
