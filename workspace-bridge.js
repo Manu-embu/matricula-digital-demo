@@ -40,7 +40,7 @@
     return {form,hidden};
   }
 
-  function wait(requestId,timeoutMs=60000){
+  function wait(requestId,timeoutMs=90000){
     return new Promise((resolve,reject)=>{
       const timer=setTimeout(()=>{
         pending.delete(requestId);
@@ -123,12 +123,12 @@
 
   window.WorkspaceBridge={
     request(params){
-      return postPayload(params||{},60000);
+      return postPayload(params||{},90000);
     },
 
     async submitForm(sourceForm){
       const payload=await formToPayload(sourceForm);
-      return postPayload(payload,120000);
+      return postPayload(payload,180000);
     }
   };
 })();
