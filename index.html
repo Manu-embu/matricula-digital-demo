@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matrícula Digital 2027 | SME Embu das Artes</title>
+  <title>Sistema de Inscrição Escolar 2027 | SME Embu das Artes</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,43 +15,41 @@
         <span>Secretaria Municipal de Educação</span>
       </div>
     </div>
-    <button class="ghost" id="btnConsultaTop">Consultar inscrição</button>
+    <div class="top-actions">
+      <button class="ghost" id="btnConsultaTop">Consultar inscrição</button>
+      <button class="ghost dashboard-link" id="btnPainelTop">Painel da Demanda</button>
+    </div>
   </header>
-  <div class="demo-banner">
-    <strong>MODO DEMONSTRAÇÃO</strong>
-    <span>Apresentação do Matrícula Digital 2027. Nenhuma informação ou documento preenchido nesta versão é armazenado.</span>
-  </div>
 
+  <div class="demo-banner">
+    <strong>MODO DEMONSTRAÇÃO • v0.5</strong>
+    <span>Não use dados ou documentos reais. Registros criados nesta demo existem somente durante esta sessão do navegador.</span>
+  </div>
 
   <main class="shell">
     <section id="home" class="view active">
       <div class="hero">
         <div>
           <span class="eyebrow">Ano letivo 2027</span>
-          <h1>Matrícula Digital</h1>
-          <p>Faça a inscrição, solicite transferência e acompanhe o atendimento escolar pela internet.</p>
+          <h1>Sistema de Inscrição Escolar</h1>
+          <p>Inscrição para quem está fora da escola. A inscrição não representa matrícula nem garantia de vaga em unidade específica.</p>
         </div>
         <div class="hero-status">
           <span class="status-dot"></span>
-          Inscrições abertas
+          Chamamento: 08/09 a 09/10
         </div>
       </div>
 
       <div class="notice">
         <strong>Antes de começar</strong>
-        <span>Tenha em mãos os documentos do estudante, do responsável e um comprovante de residência.</span>
+        <span>O sistema verificará primeiro se a criança/estudante já possui matrícula ativa. Tenha em mãos documento de identificação, data de nascimento e comprovante de residência.</span>
       </div>
 
-      <h2>Como podemos ajudar?</h2>
-      <div class="cards">
+      <h2>Nova inscrição</h2>
+      <div class="cards two-cards">
         <button class="service-card" data-service="educacao-infantil">
           <span class="icon">👶</span>
           <span><strong>Educação Infantil</strong><small>Creche e Pré-escola</small></span>
-          <b>→</b>
-        </button>
-        <button class="service-card" data-service="fundamental">
-          <span class="icon">📚</span>
-          <span><strong>Ensino Fundamental</strong><small>1º ao 9º ano</small></span>
           <b>→</b>
         </button>
         <button class="service-card" data-service="eja">
@@ -59,16 +57,62 @@
           <span><strong>EJA</strong><small>Educação de Jovens e Adultos</small></span>
           <b>→</b>
         </button>
-        <button class="service-card" data-service="transferencia">
-          <span class="icon">🔄</span>
-          <span><strong>Transferência</strong><small>Mudança de endereço ou intenção</small></span>
-          <b>→</b>
-        </button>
         <button class="service-card secondary" id="btnConsulta">
           <span class="icon">🔎</span>
-          <span><strong>Consultar inscrição</strong><small>Acompanhe seu protocolo</small></span>
+          <span><strong>Consultar inscrição</strong><small>Acompanhe protocolo e status</small></span>
           <b>→</b>
         </button>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <strong>Ensino Fundamental</strong>
+          <span>As inscrições são realizadas pelos procedimentos da Secretaria Escolar Digital (SED).</span>
+        </div>
+        <div class="info-card">
+          <strong>Transferências</strong>
+          <span>Solicitações de transferência devem ser feitas diretamente nas unidades escolares.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="precheck" class="view">
+      <div class="wizard-head">
+        <button class="back-link" id="btnPrecheckVoltar">← Voltar</button>
+        <div>
+          <span class="eyebrow" id="precheckServiceLabel">Educação Infantil</span>
+          <h1>Verificar matrícula ativa</h1>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="notice soft">
+          <strong>Inscrições somente para quem está fora da escola</strong>
+          <span>Antes de abrir o formulário, o sistema consulta a base de matrículas ativas. Na produção, esta consulta será feita sobre a base importada da SED.</span>
+        </div>
+
+        <div class="grid">
+          <label class="span2">Nome completo*
+            <input id="checkNome" autocomplete="off">
+          </label>
+          <label>Data de nascimento*
+            <input id="checkNascimento" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA">
+          </label>
+          <label>RA ou CPF da criança/estudante*
+            <input id="checkDocumento" autocomplete="off" placeholder="RA ou CPF">
+          </label>
+        </div>
+        <div class="actions inline-actions">
+          <button type="button" class="primary" id="btnVerificarMatricula">Verificar situação</button>
+        </div>
+
+        <div class="demo-tools">
+          <strong>Atalhos para apresentação:</strong>
+          <button type="button" class="outline mini" id="btnExemploMatriculado">Exemplo já matriculado</button>
+          <button type="button" class="outline mini" id="btnExemploLivre">Exemplo fora da escola</button>
+        </div>
+
+        <div id="precheckResult" class="result-box hidden"></div>
       </div>
     </section>
 
@@ -86,7 +130,7 @@
         <div class="progress"><span id="progressBar"></span></div>
       </div>
 
-      <form id="matriculaForm" novalidate>
+      <form id="inscricaoForm" novalidate>
         <section class="step active" data-step="1">
           <h2>Responsável</h2>
           <p class="muted">Informe os dados da pessoa responsável pelo estudante.</p>
@@ -173,14 +217,15 @@
         <section class="step" data-step="4">
           <h2>Atendimento e prioridades</h2>
           <div class="question-list">
-            <label class="checkrow"><input type="checkbox" id="pcd"> <span>O estudante possui deficiência ou necessita de recurso de acessibilidade?</span></label>
+            <label class="checkrow"><input type="checkbox" id="pcd"> <span>Criança/estudante com deficiência ou necessidade de recurso de acessibilidade</span></label>
+            <label class="checkrow"><input type="checkbox" id="doencaRara"> <span>Possui doença rara ou condição prevista como prioridade no chamamento</span></label>
             <label class="checkrow"><input type="checkbox" id="irmao"> <span>Possui irmão matriculado na rede pública e no mesmo endereço?</span></label>
             <label class="checkrow"><input type="checkbox" id="gemeo"> <span>Possui irmão gêmeo que também será inscrito?</span></label>
             <label class="checkrow"><input type="checkbox" id="vulnerabilidade"> <span>Existe situação de vulnerabilidade que deve ser analisada pela SME?</span></label>
           </div>
           <div class="criteria-box">
             <h3>Critérios sociais</h3>
-            <p class="muted">As informações declaradas serão conferidas pela SME antes da classificação.</p>
+            <p class="muted">As prioridades são apenas <strong>declaradas</strong> neste formulário e serão conferidas pela SME conforme a norma do chamamento.</p>
             <div class="radio-group">
               <span class="radio-title">A família é beneficiária do Programa Bolsa Família?</span>
               <label class="radio-inline"><input type="radio" name="bolsaFamilia" value="Sim"> Sim</label>
@@ -213,6 +258,10 @@
             </div>
           </div>
           <div class="notice soft">
+            <strong>Chamamento público 2027</strong>
+            <span>Período oficial: <strong>08/09/2026 a 09/10/2026</strong>. Inscrições fora do período permanecem válidas, mas serão classificadas após as inscrições regulares, ressalvadas as prioridades previstas na norma.</span>
+          </div>
+          <div class="notice soft">
             <strong>Período de atendimento</strong>
             <span>O período será definido conforme a disponibilidade de vaga da unidade escolar. Não é necessário indicar preferência.</span>
           </div>
@@ -224,7 +273,7 @@
           <div class="data-badge"><span>Base SME</span><strong id="schoolDataStatus">Carregando unidades...</strong></div>
           <div id="schools" class="school-list"></div>
           <div class="notice soft">
-            A unidade indicada é uma preferência. A matrícula dependerá das regras vigentes e da disponibilidade de vagas.
+            A unidade indicada é uma referência de atendimento. A inscrição não garante matrícula ou vaga na unidade indicada.
           </div>
         </section>
 
@@ -245,13 +294,15 @@
     <section id="success" class="view">
       <div class="success-card">
         <div class="success-icon">✓</div>
-        <span class="eyebrow">Simulação concluída</span>
-        <h1>Fluxo de inscrição concluído</h1>
-        <p>O protocolo abaixo é demonstrativo e não corresponde a uma inscrição real.</p>
-        <div class="protocol" id="protocolNumber">MAT-2027-000124</div>
+        <span class="eyebrow">Inscrição demonstrativa recebida</span>
+        <h1>Inscrição concluída</h1>
+        <p>Este protocolo é demonstrativo. Na produção, o registro será gravado no servidor da SME.</p>
+        <div class="protocol" id="protocolNumber">INS-2027-000001</div>
         <div id="successSummary" class="summary"></div>
-        <div class="notice soft">
-          A inscrição não representa garantia de matrícula na unidade indicada como preferência.
+        <div id="queueNotice" class="notice soft"></div>
+        <div class="notice soft drive-note">
+          <strong>Documentos</strong>
+          <span>Na produção, os anexos poderão ser organizados automaticamente em pasta institucional com o mesmo número do protocolo no Drive Compartilhado.</span>
         </div>
         <div class="actions center">
           <button class="outline" id="btnNova">Nova inscrição</button>
@@ -274,17 +325,60 @@
             <input id="consultaCpf" placeholder="000.000.000-00">
           </label>
           <label>Protocolo
-            <input id="consultaProtocolo" placeholder="MAT-2027-000124">
+            <input id="consultaProtocolo" placeholder="INS-2027-000001">
           </label>
         </div>
         <button class="primary" id="btnConsultarStatus">Consultar</button>
-        <div id="statusResult" class="status-result hidden">
-          <div class="status-header"><strong id="statusProtocol">MAT-2027-000124</strong><span class="badge">Em análise</span></div>
-          <div class="timeline">
-            <div class="timeline-item done"><b>Inscrição realizada</b><span>27/08/2026 • 11:44</span></div>
-            <div class="timeline-item active"><b>Em análise</b><span>Documentos e dados em conferência</span></div>
-            <div class="timeline-item"><b>Aguardando atendimento</b><span>Próxima etapa</span></div>
+        <div id="statusResult" class="status-result hidden"></div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="view">
+      <div class="wizard-head">
+        <button class="back-link" id="btnDashboardVoltar">← Voltar</button>
+        <div>
+          <span class="eyebrow">Área interna • demonstração</span>
+          <h1>Painel da Demanda</h1>
+        </div>
+      </div>
+
+      <div class="notice warning-admin">
+        <strong>Na produção</strong>
+        <span>Este painel exigirá login institucional e registrará todas as alterações de status em histórico de auditoria.</span>
+      </div>
+
+      <div id="dashboardCards" class="dashboard-cards"></div>
+
+      <div class="panel dashboard-panel">
+        <div class="dashboard-toolbar">
+          <div>
+            <h2>Fila de inscrições</h2>
+            <p class="muted">Ordenação demonstrativa: prioridades declaradas primeiro; depois inscrições no período oficial; por fim inscrições fora do período.</p>
           </div>
+          <label>Filtrar status
+            <select id="dashboardStatusFilter">
+              <option value="">Todos</option>
+              <option>Inscrição recebida</option>
+              <option>Em análise</option>
+              <option>Documentação pendente</option>
+              <option>Aguardando vaga</option>
+              <option>Encaminhado para unidade</option>
+              <option>Matriculado</option>
+              <option>Indeferido</option>
+              <option>Cancelado</option>
+            </select>
+          </label>
+        </div>
+        <div class="table-wrap">
+          <table class="demand-table">
+            <thead>
+              <tr>
+                <th>Ordem</th><th>Protocolo</th><th>Inscrito</th><th>Modalidade</th>
+                <th>Data</th><th>Classificação</th><th>Prioridade</th><th>Unidade</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="dashboardRows"></tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -292,10 +386,12 @@
 
   <footer>
     <span>Secretaria Municipal de Educação de Embu das Artes</span>
-    <span>DEMO v0.4.8 • apresentação ao Setor de Demanda • nenhum dado é armazenado</span>
+    <span>v0.5.2 • GitHub + Google Workspace • Sistema de Inscrição Escolar • nenhum documento é enviado</span>
   </footer>
 
-  <script src="dados/unidades-v047.js?v=047"></script>
-  <script src="app-v048.js?v=047"></script>
+  <script src="dados/unidades-v047.js?v=052"></script>
+  <script src="backend-config.js?v=052"></script>
+  <script src="workspace-bridge.js?v=052"></script>
+  <script src="app-v052.js?v=052"></script>
 </body>
 </html>
