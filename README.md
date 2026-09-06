@@ -1,4 +1,4 @@
-# Matrícula Digital 2027 — Protótipo v0.3
+# Inscriação Digital 2027 — Protótipo v0.5.6
 
 Protótipo navegável do Portal da Família da Secretaria Municipal de Educação de Embu das Artes.
 
