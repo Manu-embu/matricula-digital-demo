@@ -22,8 +22,8 @@
   </header>
 
   <div class="demo-banner">
-    <strong>MODO DEMONSTRAÇÃO • v0.5</strong>
-    <span>Não use dados ou documentos reais. Registros criados nesta demo existem somente durante esta sessão do navegador.</span>
+    <strong>AMBIENTE DE HOMOLOGAÇÃO • v0.5.4</strong>
+    <span>Ambiente de homologação. Utilize somente dados de teste até a liberação oficial pela SME.</span>
   </div>
 
   <main class="shell">
@@ -88,7 +88,7 @@
       <div class="panel">
         <div class="notice soft">
           <strong>Inscrições somente para quem está fora da escola</strong>
-          <span>Antes de abrir o formulário, o sistema consulta a base de matrículas ativas. Na produção, esta consulta será feita sobre a base importada da SED.</span>
+          <span>Antes de abrir o formulário, o sistema consulta a base de matrículas ativas importada da SED usando nome completo e data de nascimento.</span>
         </div>
 
         <div class="grid">
@@ -98,18 +98,9 @@
           <label>Data de nascimento*
             <input id="checkNascimento" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA">
           </label>
-          <label>RA ou CPF da criança/estudante*
-            <input id="checkDocumento" autocomplete="off" placeholder="RA ou CPF">
-          </label>
         </div>
         <div class="actions inline-actions">
           <button type="button" class="primary" id="btnVerificarMatricula">Verificar situação</button>
-        </div>
-
-        <div class="demo-tools">
-          <strong>Atalhos para apresentação:</strong>
-          <button type="button" class="outline mini" id="btnExemploMatriculado">Exemplo já matriculado</button>
-          <button type="button" class="outline mini" id="btnExemploLivre">Exemplo fora da escola</button>
         </div>
 
         <div id="precheckResult" class="result-box hidden"></div>
@@ -216,32 +207,25 @@
 
         <section class="step" data-step="4">
           <h2>Atendimento e prioridades</h2>
-          <div class="question-list">
-            <label class="checkrow"><input type="checkbox" id="pcd"> <span>Criança/estudante com deficiência ou necessidade de recurso de acessibilidade</span></label>
-            <label class="checkrow"><input type="checkbox" id="doencaRara"> <span>Possui doença rara ou condição prevista como prioridade no chamamento</span></label>
-            <label class="checkrow"><input type="checkbox" id="irmao"> <span>Possui irmão matriculado na rede pública e no mesmo endereço?</span></label>
-            <label class="checkrow"><input type="checkbox" id="gemeo"> <span>Possui irmão gêmeo que também será inscrito?</span></label>
-            <label class="checkrow"><input type="checkbox" id="vulnerabilidade"> <span>Existe situação de vulnerabilidade que deve ser analisada pela SME?</span></label>
-          </div>
           <div class="criteria-box">
-            <h3>Critérios sociais</h3>
-            <p class="muted">As prioridades são apenas <strong>declaradas</strong> neste formulário e serão conferidas pela SME conforme a norma do chamamento.</p>
-            <div class="radio-group">
-              <span class="radio-title">A família é beneficiária do Programa Bolsa Família?</span>
-              <label class="radio-inline"><input type="radio" name="bolsaFamilia" value="Sim"> Sim</label>
-              <label class="radio-inline"><input type="radio" name="bolsaFamilia" value="Não"> Não</label>
+            <h3>Critérios de prioridade</h3>
+            <p class="muted">Marque as condições declaradas pelo responsável. Elas geram uma <strong>classificação provisória</strong> e deverão ser comprovadas pela SME no ato da matrícula.</p>
+            <div class="question-list">
+              <label class="checkrow"><input type="checkbox" id="criterioPcd"> <span>Criança com deficiência / necessidade especial</span></label>
+              <label class="checkrow"><input type="checkbox" id="criterioDoencaRara"> <span>Doença rara / condição de saúde prioritária</span></label>
+              <label class="checkrow"><input type="checkbox" id="criterioMaeSolo"> <span>Mãe solo</span></label>
+              <label class="checkrow"><input type="checkbox" id="criterioMaeTrabalhadora"> <span>Mãe trabalhadora</span></label>
+              <label class="checkrow"><input type="checkbox" id="criterioMaeAdolescente"> <span>Mãe adolescente</span></label>
+              <label class="checkrow"><input type="checkbox" id="criterioIrmaoMesmaEscola"> <span>Irmão(ã) matriculado(a) na unidade indicada</span></label>
+              <label class="checkrow"><input type="checkbox" id="criterioBolsaFamilia"> <span>Família beneficiária do Bolsa Família</span></label>
+              <label class="checkrow"><input type="checkbox" id="criterioVulnerabilidade"> <span>Vulnerabilidade social e/ou situação de proteção</span></label>
             </div>
-            <div id="bolsaDocWrap" class="hidden">
-              <label>Comprovante do Bolsa Família
-                <input id="docBolsaFamilia" type="file" accept=".pdf,.jpg,.jpeg,.png">
-                <small class="field-help">PDF, JPG ou PNG. Máximo 5 MB.</small>
-              </label>
-            </div>
+            <p class="muted"><strong>Importante:</strong> a declaração não substitui a comprovação. A pontuação final poderá ser alterada após a conferência documental.</p>
           </div>
 
           <div class="documents-box">
             <h3>Documentos da criança</h3>
-            <p class="muted">Na versão definitiva será exigido RG/CPF <strong>ou</strong> Certidão de Nascimento, além do comprovante de residência. Para esta demonstração, os anexos são opcionais.</p>
+            <p class="muted">Anexe RG/CPF <strong>ou</strong> Certidão de Nascimento, além do comprovante de residência. Os arquivos serão vinculados ao protocolo e enviados ao Drive Compartilhado da SME.</p>
             <div class="grid">
               <label>Documento de identificação da criança (RG ou CPF)
                 <input id="docIdentificacaoCrianca" type="file" accept=".pdf,.jpg,.jpeg,.png">
@@ -296,13 +280,13 @@
         <div class="success-icon">✓</div>
         <span class="eyebrow">Inscrição demonstrativa recebida</span>
         <h1>Inscrição concluída</h1>
-        <p>Este protocolo é demonstrativo. Na produção, o registro será gravado no servidor da SME.</p>
+        <p>Guarde este protocolo para acompanhar a análise da inscrição.</p>
         <div class="protocol" id="protocolNumber">INS-2027-000001</div>
         <div id="successSummary" class="summary"></div>
         <div id="queueNotice" class="notice soft"></div>
         <div class="notice soft drive-note">
           <strong>Documentos</strong>
-          <span>Na produção, os anexos poderão ser organizados automaticamente em pasta institucional com o mesmo número do protocolo no Drive Compartilhado.</span>
+          <span>Os documentos anexados foram vinculados ao protocolo e encaminhados para conferência da SME.</span>
         </div>
         <div class="actions center">
           <button class="outline" id="btnNova">Nova inscrição</button>
@@ -386,12 +370,12 @@
 
   <footer>
     <span>Secretaria Municipal de Educação de Embu das Artes</span>
-    <span>v0.5.3a • GitHub + Google Workspace • Sistema de Inscrição Escolar • nenhum documento é enviado</span>
+    <span>v0.5.4 • GitHub + Google Workspace • Sistema de Inscrição Escolar • nenhum documento é enviado</span>
   </footer>
 
   <script src="dados/unidades-v047.js?v=052"></script>
   <script src="backend-config.js?v=052"></script>
   <script src="workspace-bridge.js?v=052"></script>
-  <script src="app-v053a.js?v=053a"></script>
+  <script src="app-v054.js?v=054"></script>
 </body>
 </html>
