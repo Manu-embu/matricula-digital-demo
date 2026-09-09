@@ -111,3 +111,35 @@ input[type=file]{padding:10px;background:#fff}
   .dashboard-cards{grid-template-columns:1fr 1fr}
   .dashboard-toolbar{align-items:stretch;flex-direction:column}
 }
+
+
+/* v0.5.8 — acabamento pré-produção */
+.regulation-line{
+  margin-top:8px;
+  color:#53635b;
+  font-size:.94rem;
+}
+.saving-indicator{
+  margin:14px 0 0;
+  padding:12px 14px;
+  border:1px solid #b9d7c4;
+  border-radius:12px;
+  background:#f0f8f3;
+  color:#155c3c;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+}
+.saving-indicator.hidden{display:none}
+.saving-spinner{
+  width:18px;height:18px;
+  border:2px solid #bdd8c6;
+  border-top-color:#176b46;
+  border-radius:50%;
+  animation:savingSpin .8s linear infinite;
+  flex:0 0 auto;
+}
+@keyframes savingSpin{to{transform:rotate(360deg)}}
+button:disabled{opacity:.65;cursor:not-allowed}
+#irmaoEscolaWrap{margin:8px 0 0 30px;max-width:560px}

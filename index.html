@@ -17,21 +17,16 @@
     </div>
     <div class="top-actions">
       <button class="ghost" id="btnConsultaTop">Consultar inscrição</button>
-      <button class="ghost dashboard-link" id="btnPainelTop" id="btnPainelDemanda">Painel da Demanda</button>
+      <button class="ghost" id="btnPainelDemanda">Painel da Demanda</button>
     </div>
   </header>
-
-  <div class="demo-banner">
-    <strong>AMBIENTE DE HOMOLOGAÇÃO • v0.5.6</strong>
-    <span>Ambiente de homologação. Utilize somente dados de teste até a liberação oficial pela SME.</span>
-  </div>
-
-  <main class="shell">
+<main class="shell">
     <section id="home" class="view active">
       <div class="hero">
         <div>
-          <span class="eyebrow">Ano letivo 2027</span>
+          <span class="eyebrow">Inscrição Escolar 2027</span>
           <h1>Sistema de Inscrição Escolar</h1>
+          <div class="regulation-line">Regulamentada pela <strong>Portaria nº 15, de 8 de setembro de 2026</strong></div>
           <p>Inscrição para quem está fora da escola. A inscrição não representa matrícula nem garantia de vaga em unidade específica.</p>
         </div>
         <div class="hero-status">
@@ -42,7 +37,7 @@
 
       <div class="notice">
         <strong>Antes de começar</strong>
-        <span>O sistema verificará primeiro se a criança/estudante já possui matrícula ativa. Tenha em mãos documento de identificação, data de nascimento e comprovante de residência.</span>
+        <span>O sistema verificará primeiro se a criança/estudante já possui matrícula ativa. Tenha em mãos o CPF da criança/estudante, documento de identificação ou certidão de nascimento e comprovante de residência.</span>
       </div>
 
       <h2>Nova inscrição</h2>
@@ -159,9 +154,11 @@
               <input id="dataNascimento" type="text" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA" autocomplete="bday" required>
               <small class="field-help">Ex.: 15/08/2018</small>
             </label>
-            <label>CPF do estudante
-              <input id="cpfEstudante" maxlength="14" placeholder="000.000.000-00">
+            <label>CPF da criança/estudante*
+              <input id="cpfEstudante" maxlength="14" placeholder="000.000.000-00" inputmode="numeric" required>
+              <small class="field-help">O CPF será utilizado para evitar inscrições duplicadas.</small>
             </label>
+            <div id="cpfEstudanteBox" class="result-box hidden span2"></div>
             <label>Sexo*
               <select id="sexo" required>
                 <option value="">Selecione</option>
@@ -180,7 +177,7 @@
 
         <section class="step" data-step="3">
           <h2>Endereço</h2>
-          <p class="muted">O endereço será geocodificado para localizar as unidades compatíveis mais próximas. No protótipo, o filtro usa distância geográfica de até 2 km; em produção, a regra será calculada por rota a pé.</p>
+          <p class="muted">O endereço será validado e utilizado pela Secretaria Municipal de Educação para análise territorial e indicação da unidade de atendimento.</p>
           <div class="grid">
             <label>CEP*
               <input id="cep" maxlength="9" placeholder="00000-000" autocomplete="postal-code" required>
@@ -209,23 +206,25 @@
           <h2>Atendimento e prioridades</h2>
           <div class="criteria-box">
             <h3>Critérios de prioridade</h3>
-            <p class="muted">Marque as condições declaradas pelo responsável. Elas geram uma <strong>classificação provisória</strong> e deverão ser comprovadas pela SME no ato da matrícula.</p>
+            <p class="muted">Marque as condições que se aplicam à criança ou à família. Os critérios declarados deverão ser comprovados no ato da matrícula.</p>
             <div class="question-list">
               <label class="checkrow"><input type="checkbox" id="criterioPcd"> <span>Criança com deficiência / necessidade especial</span></label>
               <label class="checkrow"><input type="checkbox" id="criterioDoencaRara"> <span>Doença rara / condição de saúde prioritária</span></label>
-              <label class="checkrow"><input type="checkbox" id="criterioMaeSolo"> <span>Mãe solo</span></label>
-              <label class="checkrow"><input type="checkbox" id="criterioMaeTrabalhadora"> <span>Mãe trabalhadora</span></label>
+              <label class="checkrow"><input type="checkbox" id="criterioFamiliaMonoparental"> <span>Família monoparental</span></label>
               <label class="checkrow"><input type="checkbox" id="criterioMaeAdolescente"> <span>Mãe adolescente</span></label>
-              <label class="checkrow"><input type="checkbox" id="criterioIrmaoMesmaEscola"> <span>Irmão(ã) matriculado(a) na unidade indicada</span></label>
+              <label class="checkrow"><input type="checkbox" id="criterioIrmaoMesmaEscola"> <span>Irmão(ã) matriculado(a) em unidade municipal</span></label>
+              <label id="irmaoEscolaWrap" class="hidden">Unidade escolar do irmão(ã)
+                <select id="irmaoEscola"><option value="">Selecione a unidade</option></select>
+              </label>
               <label class="checkrow"><input type="checkbox" id="criterioBolsaFamilia"> <span>Família beneficiária do Bolsa Família</span></label>
               <label class="checkrow"><input type="checkbox" id="criterioVulnerabilidade"> <span>Vulnerabilidade social e/ou situação de proteção</span></label>
             </div>
-            <p class="muted"><strong>Importante:</strong> a declaração não substitui a comprovação. A pontuação final poderá ser alterada após a conferência documental.</p>
+            <p class="muted"><strong>Importante:</strong> a declaração não substitui a comprovação documental e será analisada pelo Setor de Demanda.</p>
           </div>
 
           <div class="documents-box">
             <h3>Documentos da criança</h3>
-            <p class="muted">Anexe RG/CPF <strong>ou</strong> Certidão de Nascimento, além do comprovante de residência. Os arquivos serão vinculados ao protocolo e enviados ao Drive Compartilhado da SME.</p>
+            <p class="muted">Anexe documento de identificação <strong>ou</strong> Certidão de Nascimento, além do comprovante de residência. Os arquivos ficarão vinculados ao protocolo da inscrição.</p>
             <div class="grid">
               <label>Documento de identificação da criança (RG ou CPF)
                 <input id="docIdentificacaoCrianca" type="file" accept=".pdf,.jpg,.jpeg,.png">
@@ -250,24 +249,14 @@
             <span>O período será definido conforme a disponibilidade de vaga da unidade escolar. Não é necessário indicar preferência.</span>
           </div>
         </section>
-
-        <section class="step" data-step="5">
-          <h2>Unidades compatíveis</h2>
-          <p class="muted">Unidades reais da base da SME, filtradas pela etapa calculada. A capacidade exibida é referência de 2026, não representa vaga disponível em 2027.</p>
-          <div class="data-badge"><span>Base SME</span><strong id="schoolDataStatus">Carregando unidades...</strong></div>
-          <div id="schools" class="school-list"></div>
-          <div class="notice soft">
-            A unidade indicada é uma referência de atendimento. A inscrição não garante matrícula ou vaga na unidade indicada.
-          </div>
-        </section>
-
-        <section class="step" data-step="6">
+<section class="step" data-step="5">
           <h2>Revisão</h2>
           <p class="muted">Confira as informações antes de finalizar.</p>
           <div id="review" class="review"></div>
-          <label class="checkrow legal"><input type="checkbox" id="declaracao" required> <span>Declaro que as informações fornecidas são verdadeiras e estou ciente das regras de atendimento.</span></label>
+          <label class="checkrow legal"><input type="checkbox" id="declaracao" required> <span>Declaro que as informações fornecidas são verdadeiras, nos termos da Lei nº 13.726/2018, e estou ciente das regras do processo de inscrição.</span></label>
         </section>
 
+        <div id="saveIndicator" class="saving-indicator hidden" role="status" aria-live="polite"><span class="saving-spinner"></span><span>Salvando dados e documentos. Aguarde...</span></div>
         <div class="actions">
           <button type="button" class="outline" id="btnPrev">Voltar</button>
           <button type="button" class="primary" id="btnNext">Continuar</button>
@@ -278,7 +267,7 @@
     <section id="success" class="view">
       <div class="success-card">
         <div class="success-icon">✓</div>
-        <span class="eyebrow">Inscrição demonstrativa recebida</span>
+        <span class="eyebrow">Inscrição recebida</span>
         <h1>Inscrição concluída</h1>
         <p>Guarde este protocolo para acompanhar a análise da inscrição.</p>
         <div class="protocol" id="protocolNumber">INS-2027-000001</div>
@@ -286,7 +275,7 @@
         <div id="queueNotice" class="notice soft"></div>
         <div class="notice soft drive-note">
           <strong>Documentos</strong>
-          <span>Os documentos anexados foram vinculados ao protocolo e encaminhados para conferência da SME.</span>
+          <span>Os documentos anexados foram vinculados ao protocolo e encaminhados para conferência da Secretaria Municipal de Educação.</span>
         </div>
         <div class="actions center">
           <button class="outline" id="btnNova">Nova inscrição</button>
@@ -316,67 +305,17 @@
         <div id="statusResult" class="status-result hidden"></div>
       </div>
     </section>
-
-    <section id="dashboard" class="view">
-      <div class="wizard-head">
-        <button class="back-link" id="btnDashboardVoltar">← Voltar</button>
-        <div>
-          <span class="eyebrow">Área interna • demonstração</span>
-          <h1>Painel da Demanda</h1>
-        </div>
-      </div>
-
-      <div class="notice warning-admin">
-        <strong>Na produção</strong>
-        <span>Este painel exigirá login institucional e registrará todas as alterações de status em histórico de auditoria.</span>
-      </div>
-
-      <div id="dashboardCards" class="dashboard-cards"></div>
-
-      <div class="panel dashboard-panel">
-        <div class="dashboard-toolbar">
-          <div>
-            <h2>Fila de inscrições</h2>
-            <p class="muted">Ordenação demonstrativa: prioridades declaradas primeiro; depois inscrições no período oficial; por fim inscrições fora do período.</p>
-          </div>
-          <label>Filtrar status
-            <select id="dashboardStatusFilter">
-              <option value="">Todos</option>
-              <option>Inscrição recebida</option>
-              <option>Em análise</option>
-              <option>Documentação pendente</option>
-              <option>Aguardando vaga</option>
-              <option>Encaminhado para unidade</option>
-              <option>Matriculado</option>
-              <option>Indeferido</option>
-              <option>Cancelado</option>
-            </select>
-          </label>
-        </div>
-        <div class="table-wrap">
-          <table class="demand-table">
-            <thead>
-              <tr>
-                <th>Ordem</th><th>Protocolo</th><th>Inscrito</th><th>Modalidade</th>
-                <th>Data</th><th>Classificação</th><th>Prioridade</th><th>Unidade</th><th>Status</th>
-              </tr>
-            </thead>
-            <tbody id="dashboardRows"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     <span>Secretaria Municipal de Educação de Embu das Artes</span>
-    <span>v0.5.6 • GitHub + Google Workspace • Sistema de Inscrição Escolar • nenhum documento é enviado</span>
+    <span>Sistema de Inscrição Escolar 2027 • Portaria nº 15, de 8 de setembro de 2026</span>
   </footer>
 
   <script src="dados/unidades-v047.js?v=052"></script>
   <script src="painel-config.js?v=056"></script>
   <script src="backend-config.js?v=052"></script>
   <script src="workspace-bridge.js?v=052"></script>
-  <script src="app-v056.js?v=056"></script>
+  <script src="app-v058.js?v=058"></script>
 </body>
 </html>
